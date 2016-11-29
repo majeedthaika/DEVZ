@@ -1,3 +1,5 @@
+package io.muic.dev
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import java.util.Date
 import java.util.concurrent.TimeUnit
@@ -6,28 +8,26 @@ import akka.pattern.ask
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.util.Timeout
 import scala.concurrent.duration._
-
 object TimePerLineActor{
-  case class TimeRequest(line: ttetRawData)
+  case class TimeRequest(data_with_delay: (Long, ttetRawData))
   case class TimeReport(line: ttetRawData) // When done
 }
 
 class TimePerLineActor extends Actor{
   import TimePerLineActor._
   def receive = {
-    case TimeRequest(line) => {
-      var Rand = scala.util.Random
-      var random = Rand.nextInt(10) + 3
-      println(random + " seconds wait")
-      TimeUnit.SECONDS.sleep(random);
-      sender ! TimeReport(line)
+    case TimeRequest(data_with_delay) => {
+      val (delay, data) = data_with_delay
+      val diff = delay - new Date().getTime()
+      if (diff > 0){TimeUnit.MILLISECONDS.sleep(diff);}
+      sender ! TimeReport(data)
       context.stop(self) //no need message
     }
   }
 }
 
 object TimeActor{
-  case class TimePrint(line: ttetRawData)
+  case class TimePrint(data_with_delay: (Long, ttetRawData))
   case class Tell(line:ttetRawData)
 }
 
@@ -36,9 +36,9 @@ class TimeActor extends Actor{
   import TimePerLineActor._
   var theMaster: Option[ActorRef] = None
   def receive = {
-    case TimePrint(line) => {
+    case TimePrint(data_with_delay) => {
       theMaster = Some(sender)
-      context.actorOf(Props[TimePerLineActor]) ! TimeRequest(line)
+      context.actorOf(Props[TimePerLineActor]) ! TimeRequest(data_with_delay)
     }
     case TimeReport(line) =>{
       theMaster.map(_ ! Tell(line))
@@ -66,30 +66,31 @@ class ttetRawData(rawString: String) {
   override def toString: String = datetime.toString
 }
 
-object Main extends App {
-  val raw_data = Source.fromFile("src/main/data.csv")
+object GPS_Simulator extends App {
+  val raw_data = Source.fromFile("src/test/dataset/data.csv")
     .getLines.drop(1)
     .map(line => new ttetRawData(line))
     .toList
 
   val initial_point = raw_data.minBy(_.datetime).timestring
-  val normalized =  raw_data.sortWith(_ < _)
+  val curr_time = new Date().getTime()
+  val datastream =  raw_data.sortWith(_ < _)
+    .map({d => (curr_time+(d.timestring-initial_point),d) })
+
   val system = ActorSystem("TimedPrint")
   import TimeActor._
   implicit val timeout = Timeout(60 seconds)
-  val LinesFutures = normalized.map({
-    line =>  system.actorOf(Props[TimeActor]) ? TimePrint(line)
+  val LinesFutures = datastream.map({
+    data_with_delay =>  {
+      system.actorOf(Props[TimeActor]) ? TimePrint(data_with_delay)
+    }
   })
 
   LinesFutures.foreach {case futLn =>
     futLn.onSuccess{
-      case Tell(ln) => println(s"${ln}")
+      case Tell(ln) => {
+        println(s"${ln}")
+      }
     }
   }
-
-
-  //                            .map(_.timestring - initial_point)
-  //  println(normalized)
-  //  normalized.foreach(println)
-
 }
