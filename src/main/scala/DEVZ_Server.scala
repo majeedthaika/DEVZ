@@ -1,7 +1,5 @@
 import java.util.Date
 
-import org.scalatra._
-
 //package io.muic.dev
 
 object DEVZ_Server {
@@ -23,11 +21,5 @@ object DEVZ_Server {
       }
 //      s.close()
     }
-  }
-}
-
-class ScalatraExample extends ScalatraServlet {
-  get("/") {
-    <h1>Hello, world!</h1>
   }
 }
