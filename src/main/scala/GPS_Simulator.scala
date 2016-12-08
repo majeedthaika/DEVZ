@@ -50,7 +50,7 @@ class TimeActor extends Actor{
   }
 }
 
-class ttetRawData(rawString: String) {
+class ttetRawData(rawString: String)  {
 
   val splitted = rawString.split(",")
   def imei: String = splitted(1)
