@@ -3,7 +3,6 @@ markers = []
 function setMarkers(locations) {
     for (var i = 0; i < locations.length; i++) {
         var markerInfo = locations[i];
-        console.log(markerInfo)
         var LatLng = new google.maps.LatLng(parseFloat(markerInfo.lat), parseFloat(markerInfo.lng));
         var marker = new google.maps.Marker({
           map: getMap(),
@@ -15,13 +14,21 @@ function setMarkers(locations) {
             fillOpacity: 1,
             rotation: parseInt(markerInfo.rotation)
           }
-        markers.push(marker);
+        });
+        markers.push([marker, markerInfo.die]);
     }
+    setTimeout(function(){ 
+      for (var i = 0; i < markers.length; i++) {
+        if (markers[i][1] == 1){
+          markers[i][0].setMap(null); 
+        }
+      }
+    }, 60000);
 }
 
 function resetMarkers() {
     for (var i=0; i<markers.length; i++) {
-        markers[i].setMap(null);
+        markers[i][0].setMap(null);
     }
     markers = [];
 }

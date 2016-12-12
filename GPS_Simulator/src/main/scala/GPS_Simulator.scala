@@ -59,13 +59,8 @@ class ttetRawData(rawString: String)  {
   def direction: Float = splitted(5).toFloat
   def timestring: Long = splitted(9).toLong * 1000
   def datetime = new Date(timestring)
-
-  def ==(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) == 0
-  def !=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) != 0
-  def <(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) < 0
-  def <=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) <= 0
-  def >(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) > 0
-  def >=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) > 0
+  
+  def compare(that: ttetRawData): Int = datetime.compareTo(that.datetime)
 
   def toRawString: String = rawString
   override def toString: String = datetime.toString+","+rawString

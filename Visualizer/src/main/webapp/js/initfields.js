@@ -24,10 +24,10 @@ $(function (){
   document.getElementById("lat1").value = ("lat1" in query_string) ? query_string["lat1"] : '13.78677';
   document.getElementById("lng0").value = ("lng0" in query_string) ? query_string["lng0"] : '100.46821';
   document.getElementById("lng1").value = ("lng1" in query_string) ? query_string["lng1"] : '100.48190';
-  if ("day" in query_string){ $('#day').combodate('setValue',query_string["day"]); }
-  if ("time" in query_string){ $('#time').combodate('setValue',query_string["time"]); }
-  if ("window" in query_string){ $("#windowsize").text(query_string["window"]); $("#slider").slider({value: query_string["window"]}); }
-  document.getElementById("slidestep").value = ("slide" in query_string) ? query_string["slide"] : '60';
+  // if ("day" in query_string){ $('#day').combodate('setValue',query_string["day"]); }
+  // if ("time" in query_string){ $('#time').combodate('setValue',query_string["time"]); }
+  // if ("window" in query_string){ $("#windowsize").text(query_string["window"]); $("#slider").slider({value: query_string["window"]}); }
+  // document.getElementById("slidestep").value = ("slide" in query_string) ? query_string["slide"] : '60';
 
   // return query_string;
 });

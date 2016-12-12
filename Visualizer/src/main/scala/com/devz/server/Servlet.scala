@@ -2,12 +2,13 @@ package com.devz.server
 
 import java.util.Date
 import java.util.concurrent.TimeUnit
+import scala.collection.mutable.Buffer
 import scala.collection.mutable.ArrayBuffer
 
 import org.scalatra._
 import scala.util.parsing.json._
 
-class ttetRawData(rawString: String)  {
+class ttetRawData(rawString: String) extends Ordered[ttetRawData] {
 
   val splitted = rawString.split(",")
   def imei: String = splitted(1)
@@ -18,12 +19,7 @@ class ttetRawData(rawString: String)  {
   def timestring: Long = splitted(9).toLong * 1000
   def datetime = new Date(timestring)
 
-  def ==(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) == 0
-  def !=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) != 0
-  def <(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) < 0
-  def <=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) <= 0
-  def >(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) > 0
-  def >=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) > 0
+  def compare(that: ttetRawData): Int = datetime.compareTo(that.datetime)
 
   def toJSONString: String = s"{${'"'}lat${'"'}: $lat, ${'"'}lng${'"'}: $lng, ${'"'}speed${'"'}: $speed, ${'"'}rotation${'"'}: $direction, ${'"'}die${'"'}: 0}"
   override def toString: String = datetime.toString+","+rawString
@@ -39,7 +35,7 @@ class Servlet extends TestStack {
 	// 	{"lat": 13.78, "lng": 100.474, "speed": 1, "rotation": 0, "die": 1}
 	// ]
 	// """
-	var toSend = ArrayBuffer[String]()
+	var allCars = Buffer[ttetRawData]()
 	var count = 0
 
 	get("/") {
@@ -50,8 +46,23 @@ class Servlet extends TestStack {
 	get("/testGen") {
 		contentType = "text/html"
 		println(count)
-		// println("["+toSend.mkString(",")+"]")
-		"["+toSend.mkString(",")+"]"
+		allCars = allCars.groupBy(_.imei)
+					   .mapValues(_.max)
+					   .values
+					   .toBuffer[ttetRawData]
+
+		val lat0 = request.getParameter("lat0").toDouble
+		val lat1 = request.getParameter("lat1").toDouble
+		val lng0 = request.getParameter("lng0").toDouble
+		val lng1 = request.getParameter("lng1").toDouble
+		def isInRect(LAT: Double,LNG: Double): Boolean ={
+			(lat0 <= LAT && LAT <= lat1) && (lng0 <= LNG && LNG <= lng1)
+		}
+		val inRect = allCars.filter(car => isInRect(car.lat,car.lng))
+
+		// println("["+inRect.mkString(",")+"]")
+		"["+inRect.map(_.toJSONString).mkString(",")+"]"
+		// "["+allCars.map(_.toJSONString).mkString(",")+"]"
 	}
 
 	post("/gpsInput") {
@@ -60,6 +71,6 @@ class Servlet extends TestStack {
 		count = count + 1
 
 		println(data)
-		toSend += data.toJSONString
+		allCars += data
 	}
 }
