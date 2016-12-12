@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#map {
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  position:absolute;
+  z-index:200;
+}
+#windowsize {
+  width: 2.2em;
+  height: 1.6em;
+  top: 50%;
+  margin-top: -.8em;
+  margin-left: -1.5em;
+  text-align: center;
+  line-height: 1.6em;
+}

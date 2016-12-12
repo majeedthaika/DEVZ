@@ -2,6 +2,7 @@ import java.io.PrintStream
 import java.net.{InetAddress, Socket}
 import java.util.Date
 import java.util.concurrent.TimeUnit
+import scalaj.http._
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.pattern.ask
@@ -92,13 +93,17 @@ object GPS_Simulator extends App {
   })
 
 
-  val s = new Socket(InetAddress.getByName("localhost"), 9999)
-  lazy val in = new BufferedSource(s.getInputStream()).getLines()
-  val out = new PrintStream(s.getOutputStream())
+  // val s = new Socket(InetAddress.getByName("localhost"), 9999)
+  // lazy val in = new BufferedSource(s.getInputStream()).getLines()
+  // val out = new PrintStream(s.getOutputStream())
   LinesFutures.foreach {case futLn =>
     futLn.onSuccess{
       case Tell(ln) => {
-        out.println(s"${ln}")
+        // out.println(s"${ln}")
+        val result = Http("http://localhost:8080/gpsInput").postData(ln.toString)
+              .header("Content-Type","text/plain")
+              .header("Charset", "UTF-8")
+              .option(HttpOptions.readTimeout(10000)).asString
       }
     }
   }

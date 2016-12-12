@@ -7,6 +7,7 @@ scalaVersion := "2.11.8"
 resolvers += Classpaths.typesafeReleases
 
 libraryDependencies ++= Seq(
+  "org.scalaj" % "scalaj-http_2.11" % "2.3.0",
   "org.scalatest" %% "scalatest" % "3.0.0" % "test",
   "org.xerial" % "sqlite-jdbc" % "3.8.7",
   "com.typesafe.slick" %% "slick" % "3.1.1"

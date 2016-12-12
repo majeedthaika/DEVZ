@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.test"
+		module="visualizer_2.11"
+		revision="0.1"
+		conf="container"
+		confs="compile, runtime, test, provided, optional, container, jetty, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, scalate"
+		date="20161212145333"/>
+	<dependencies>
+		<module organisation="org.eclipse.jetty" name="jetty-webapp">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045542" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+				<metadata-artifact status="successful" details="" size="3537" time="972" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-webapp/ivy-9.2.15.v20160210.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-webapp/ivy-9.2.15.v20160210.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-webapp/9.2.15.v20160210/jetty-webapp-9.2.15.v20160210.pom"/>
+				<caller organisation="com.test" name="visualizer_2.11" conf="container" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="jetty-webapp" type="jar" ext="jar" status="successful" details="" size="107861" time="1227" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-webapp/jars/jetty-webapp-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-webapp/9.2.15.v20160210/jetty-webapp-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-servlet">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045509" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+				<metadata-artifact status="successful" details="" size="3283" time="917" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-servlet/ivy-9.2.15.v20160210.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-servlet/ivy-9.2.15.v20160210.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/9.2.15.v20160210/jetty-servlet-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-webapp" conf="default, compile, runtime, master" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-servlet" type="jar" ext="jar" status="successful" details="" size="115718" time="1332" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-servlet/jars/jetty-servlet-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/9.2.15.v20160210/jetty-servlet-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-security">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045421" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<metadata-artifact status="successful" details="" size="2777" time="1047" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-security/ivy-9.2.15.v20160210.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-security/ivy-9.2.15.v20160210.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/9.2.15.v20160210/jetty-security-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-servlet" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-security" type="jar" ext="jar" status="successful" details="" size="95897" time="1126" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-security/jars/jetty-security-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/9.2.15.v20160210/jetty-security-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-server">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045341" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+				<metadata-artifact status="successful" details="" size="4102" time="1121" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-server/ivy-9.2.15.v20160210.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-server/ivy-9.2.15.v20160210.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/9.2.15.v20160210/jetty-server-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-security" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-server" type="jar" ext="jar" status="successful" details="" size="419101" time="1434" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-server/jars/jetty-server-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/9.2.15.v20160210/jetty-server-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-io">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045127" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<metadata-artifact status="no" details="" size="11626" time="0" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-io/ivy-9.2.15.v20160210.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/9.2.15.v20160210/jetty-io-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-io" type="jar" ext="jar" status="no" details="" size="108321" time="0" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-io/jars/jetty-io-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/9.2.15.v20160210/jetty-io-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-http">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045039" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<metadata-artifact status="successful" details="" size="2524" time="1124" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-http/ivy-9.2.15.v20160210.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-http/ivy-9.2.15.v20160210.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.2.15.v20160210/jetty-http-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-http" type="jar" ext="jar" status="successful" details="" size="126765" time="1227" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-http/jars/jetty-http-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.2.15.v20160210/jetty-http-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-xml">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045205" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="1">
+				<metadata-artifact status="successful" details="" size="2024" time="1128" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-xml/ivy-9.2.15.v20160210.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-xml/ivy-9.2.15.v20160210.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-xml/9.2.15.v20160210/jetty-xml-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-webapp" conf="default, compile, runtime, master" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-xml" type="jar" ext="jar" status="successful" details="" size="44133" time="1122" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-xml/jars/jetty-xml-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-xml/9.2.15.v20160210/jetty-xml-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-util">
+			<revision name="9.2.15.v20160210" status="release" pubdate="20160211045005" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+				<metadata-artifact status="no" details="" size="11897" time="0" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-util/ivy-9.2.15.v20160210.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.2.15.v20160210/jetty-util-9.2.15.v20160210.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-http" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-xml" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-io" conf="compile, runtime" rev="9.2.15.v20160210" rev-constraint-default="9.2.15.v20160210" rev-constraint-dynamic="9.2.15.v20160210" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="jetty-util" type="jar" ext="jar" status="no" details="" size="368398" time="0" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-util/jars/jetty-util-9.2.15.v20160210.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.2.15.v20160210/jetty-util-9.2.15.v20160210.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.servlet" name="javax.servlet-api">
+			<revision name="3.1.0" status="release" pubdate="20130426065239" resolver="public" artresolver="public" homepage="http://servlet-spec.java.net" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+				<license name="CDDL + GPLv2 with classpath exception" url="https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html"/>
+				<metadata-artifact status="successful" details="" size="13527" time="922" location="/Users/majeedthaika/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.1.0.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.1.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="3.1.0" rev-constraint-default="3.1.0" rev-constraint-dynamic="3.1.0" callerrev="9.2.15.v20160210"/>
+				<artifacts>
+					<artifact name="javax.servlet-api" type="jar" ext="jar" status="successful" details="" size="95806" time="1064" location="/Users/majeedthaika/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

@@ -26,7 +26,8 @@ class Servlet extends TestStack {
 		test_J
 	}
 
-	// post(/gpsInput) {
-
-	// }
+	post("/gpsInput") {
+		val txt = request.body
+		println(txt)
+	}
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.test"
+		module="visualizer_2.11"
+		revision="0.1"
+		conf="jetty"
+		confs="compile, runtime, test, provided, optional, container, jetty, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, scalate"
+		date="20161212145333"/>
+	<dependencies>
+		<module organisation="org.eclipse.jetty" name="jetty-runner">
+			<revision name="9.2.1.v20140609" status="release" pubdate="20140610034158" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="3498" time="1106" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-runner/ivy-9.2.1.v20140609.xml" searched="true" original-local-location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-runner/ivy-9.2.1.v20140609.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.2.1.v20140609/jetty-runner-9.2.1.v20140609.pom"/>
+				<caller organisation="com.test" name="visualizer_2.11" conf="jetty" rev="9.2.1.v20140609" rev-constraint-default="9.2.1.v20140609" rev-constraint-dynamic="9.2.1.v20140609" callerrev="0.1"/>
+				<artifacts>
+					<artifact name="jetty-runner" type="jar" ext="jar" status="successful" details="" size="5232596" time="3932" location="/Users/majeedthaika/.ivy2/cache/org.eclipse.jetty/jetty-runner/jars/jetty-runner-9.2.1.v20140609.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.2.1.v20140609/jetty-runner-9.2.1.v20140609.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

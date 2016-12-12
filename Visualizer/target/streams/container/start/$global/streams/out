@@ -1,0 +1,1 @@
+[0m[[31merror[0m] [0msince xsbt-web-plugin 2.x please use jetty:start instead of container:start, for more information check the docs at https://github.com/earldouglas/xsbt-web-plugin[0m
