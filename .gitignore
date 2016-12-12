@@ -1,3 +1,9 @@
-project/
-target/
-src/test/dataset/
+.git/
+.idea/
+.lib/
+.DS_Store
+GPS_Simulator/project/
+GPS_Simulator/target/
+GPS_Simulator/src/main/scala/data.csv
+Visualizer/project/
+Visualizer/target/
