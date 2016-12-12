@@ -74,7 +74,7 @@ class ttetRawData(rawString: String)  {
 object GPS_Simulator extends App {
 //  val raw_data = Source.fromFile("src/test/dataset/data.csv")
   val raw_data = Source.fromFile("src/main/resources/data.csv")
-    .getLines.drop(1).take(1)
+    .getLines.drop(1).take(20)
     .map(line => new ttetRawData(line))
     .toList
 
