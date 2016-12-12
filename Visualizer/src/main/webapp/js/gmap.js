@@ -16,7 +16,7 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: (bounds.north+bounds.south)/2, lng: (bounds.east+bounds.west)/2},
-    zoom: 15
+    zoom: 12
   });
 
   // Define the rectangle and set its editable property to true.

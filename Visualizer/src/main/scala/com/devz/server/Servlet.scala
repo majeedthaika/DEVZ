@@ -37,19 +37,23 @@ class Servlet extends TestStack {
 	// """
 	var allCars = Buffer[ttetRawData]()
 	var count = 0
+	var firstTime: Long = 0
+	var realInitTime: Long = 0
 
 	get("/") {
 		contentType = "text/html"
 		new java.io.File(servletContext.getResource("/WEB-INF/html/visualizer.html").getFile)
 	}
 
-	get("/testGen") {
+	get("/plot") {
 		contentType = "text/html"
-		println(count)
+		val currTime = new Date().getTime()
 		allCars = allCars.groupBy(_.imei)
 					   .mapValues(_.max)
 					   .values
+					   .filter(_.timestring >= (firstTime + (currTime - realInitTime) - 20000))
 					   .toBuffer[ttetRawData]
+		println(allCars.length)
 
 		val lat0 = request.getParameter("lat0").toDouble
 		val lat1 = request.getParameter("lat1").toDouble
@@ -68,6 +72,10 @@ class Servlet extends TestStack {
 	post("/gpsInput") {
 		val txt = request.body
 		val data = new ttetRawData(txt)
+		if (count==0) {
+			firstTime = data.timestring
+			realInitTime = new Date().getTime()
+		}
 		count = count + 1
 
 		println(data)

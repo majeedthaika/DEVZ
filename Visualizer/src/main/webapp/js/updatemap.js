@@ -18,7 +18,7 @@ function refreshGMapMarkers(){
   });
 };
 
-setInterval ( refreshGMapMarkers, 5000 );
+setInterval ( refreshGMapMarkers, 7000 );
 
 $('#generateButton').on('click', function(event){
   setNewBounds({
