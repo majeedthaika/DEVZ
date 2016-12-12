@@ -67,6 +67,7 @@ class ttetRawData(rawString: String)  {
   def >(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) > 0
   def >=(that: ttetRawData): Boolean = datetime.compareTo(that.datetime) > 0
 
+  def toRawString: String = rawString
   override def toString: String = datetime.toString+","+rawString
 }
 
@@ -74,7 +75,7 @@ class ttetRawData(rawString: String)  {
 object GPS_Simulator extends App {
 //  val raw_data = Source.fromFile("src/test/dataset/data.csv")
   val raw_data = Source.fromFile("src/main/resources/data.csv")
-    .getLines.drop(1).take(20)
+    .getLines.drop(1)
     .map(line => new ttetRawData(line))
     .toList
 
@@ -85,7 +86,7 @@ object GPS_Simulator extends App {
 
   val system = ActorSystem("TimedPrint")
   import TimeActor._
-  implicit val timeout = Timeout(60 seconds)
+  implicit val timeout = Timeout(3600 seconds)
   val LinesFutures = datastream.map({
     data_with_delay =>  {
       system.actorOf(Props[TimeActor]) ? TimePrint(data_with_delay)
@@ -100,7 +101,7 @@ object GPS_Simulator extends App {
     futLn.onSuccess{
       case Tell(ln) => {
         // out.println(s"${ln}")
-        val result = Http("http://localhost:8080/gpsInput").postData(ln.toString)
+        val result = Http("http://localhost:8080/gpsInput").postData(ln.toRawString)
               .header("Content-Type","text/plain")
               .header("Charset", "UTF-8")
               .option(HttpOptions.readTimeout(10000)).asString

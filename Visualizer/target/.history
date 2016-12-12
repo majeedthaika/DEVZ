@@ -67,3 +67,7 @@ jetty:stop
 jetty:start
 q
 jetty:start
+compile
+jetty:start
+compile
+jetty:start
