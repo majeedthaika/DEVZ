@@ -1,4 +1,4 @@
-name := "DEVZ Project"
+name := "DEVZ GPS_Server"
 
 version := "1.0"
 

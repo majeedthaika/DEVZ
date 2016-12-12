@@ -1,8 +1,6 @@
 import java.util.Date
 
-//package io.muic.dev
-
-object DEVZ_Server {
+object Simple_Server {
   // Simple server
   import java.io._
   import java.net._

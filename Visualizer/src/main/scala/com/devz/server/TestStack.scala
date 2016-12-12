@@ -1,4 +1,4 @@
-package com.test
+package com.devz.server
 
 import org.scalatra._
 import scalate.ScalateSupport

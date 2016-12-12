@@ -1,4 +1,4 @@
-package com.test
+package com.devz.server
 
 import org.scalatra._
 import scala.util.parsing.json._
@@ -27,6 +27,6 @@ class Servlet extends TestStack {
 	}
 
 	// post(/gpsInput) {
-		
+
 	// }
 }

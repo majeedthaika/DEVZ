@@ -1,4 +1,4 @@
-import com.test._
+import com.devz.server._
 import org.scalatra._
 import javax.servlet.ServletContext
 

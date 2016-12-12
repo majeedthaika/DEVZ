@@ -9,9 +9,9 @@ ScalatraPlugin.scalatraSettings
 
 scalateSettings
 
-organization := "com.test"
+organization := "com.devz.server"
 
-name := "Test"
+name := "Visualizer"
 
 version := "0.1"
 

@@ -1,5 +1,3 @@
-//package io.muic.dev
-
 import java.io.PrintStream
 import java.net.{InetAddress, Socket}
 import java.util.Date
@@ -74,8 +72,8 @@ class ttetRawData(rawString: String)  {
 
 object GPS_Simulator extends App {
 //  val raw_data = Source.fromFile("src/test/dataset/data.csv")
-  val raw_data = Source.fromFile("data.csv")
-    .getLines.drop(1)
+  val raw_data = Source.fromFile("src/main/resources/data.csv")
+    .getLines.drop(1).take(1)
     .map(line => new ttetRawData(line))
     .toList
 
